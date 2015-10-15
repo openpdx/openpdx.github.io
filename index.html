@@ -3,24 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <title>OpenPDX</title>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
   <link rel="stylesheet" href="http://code.ngoldman.me/style.css/style.css">
   <style>
+    html, body {
+      backgrond: #e0e0e0;
+    }
     .page {
+      color: #222;
       margin: 12rem auto 0;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
-    .page h1 {
-      font-size: 4rem;
+    .page h1 { font-size: 4rem; }
+    .page h2 { font-size: 2rem; }
+    .page h1,
+    .page h2 {
+      color: #fff;
+      text-shadow: 1px 0 0 rgba(0,0,0,.23),
+                   -1px 0 0 rgba(0,0,0,.23),
+                   0 1px 0 rgba(0,0,0,.23),
+                   0 -1px 0 rgba(0,0,0,.23),
+                   1px 1px 0 rgba(0,0,0,.23),
+                   -1px -1px 0 rgba(0,0,0,.23),
+                   -1px 1px 0 rgba(0,0,0,.23),
+                   1px -1px 0 rgba(0,0,0,.23);
     }
-    .page p {
-      font-size: 2rem;
+    #map {
+      -webkit-filter: grayscale(80%);
+      -moz-filter: grayscale(80%);
+      filter: grayscale(80%);
+      cursor: default;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
+  <div id="map"></div>
   <main class="page">
     <h1>OpenPDX</h1>
-    <p>coming soon</p>
+    <h2>coming soon</h2>
   </main>
+
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="leaflet.ajax.min.js"></script>
+  <script>
+    var map = L.map('map', {
+      zoomControl: false
+    }).setView([45.525181, -122.669872], 14)
+
+    map.dragging.disable()
+    map.touchZoom.disable()
+    map.doubleClickZoom.disable()
+    map.scrollWheelZoom.disable()
+    if (map.tap) map.tap.disable()
+
+    var hyddaBase = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
+      attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    })
+
+    hyddaBase.addTo(map)
+  </script>
 </body>
 </html>
