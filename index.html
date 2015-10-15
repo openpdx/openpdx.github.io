@@ -7,34 +7,25 @@
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
   <link rel="stylesheet" href="http://code.ngoldman.me/style.css/style.css">
   <style>
-    html, body {
-      backgrond: #e0e0e0;
-    }
+    html, body { backgrond: #f2f3f0; }
     .page {
-      color: #222;
-      margin: 12rem auto 0;
+      color: #444;
+      color: rgba(0,0,0,.5);
+      margin: 20% auto 0;
       text-align: center;
       position: relative;
       z-index: 1;
     }
-    .page h1 { font-size: 4rem; }
-    .page h2 { font-size: 2rem; }
-    .page h1,
-    .page h2 {
-      color: #fff;
-      text-shadow: 1px 0 0 rgba(0,0,0,.23),
-                   -1px 0 0 rgba(0,0,0,.23),
-                   0 1px 0 rgba(0,0,0,.23),
-                   0 -1px 0 rgba(0,0,0,.23),
-                   1px 1px 0 rgba(0,0,0,.23),
-                   -1px -1px 0 rgba(0,0,0,.23),
-                   -1px 1px 0 rgba(0,0,0,.23),
-                   1px -1px 0 rgba(0,0,0,.23);
+    .page h1 {
+      font-size: 4rem;
+      margin-bottom: 0;
+    }
+    .page h3 {
+      margin: 1rem 0;
+      font-size: 1.5rem;
     }
     #map {
-      -webkit-filter: grayscale(80%);
-      -moz-filter: grayscale(80%);
-      filter: grayscale(80%);
+      opacity: .4;
       cursor: default;
       position: absolute;
       left: 0;
@@ -49,7 +40,7 @@
   <div id="map"></div>
   <main class="page">
     <h1>OpenPDX</h1>
-    <h2>coming soon</h2>
+    <h3>coming soon</h3>
   </main>
 
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -65,11 +56,12 @@
     map.scrollWheelZoom.disable()
     if (map.tap) map.tap.disable()
 
-    var hyddaBase = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/base/{z}/{x}/{y}.png', {
-      attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd'
     })
 
-    hyddaBase.addTo(map)
+    basemap.addTo(map)
   </script>
 </body>
 </html>
