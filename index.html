@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OpenPDX</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css">
   <link rel="stylesheet" href="http://code.ngoldman.me/style.css/style.css">
   <style>
@@ -11,7 +12,7 @@
     .page {
       color: #444;
       color: rgba(0,0,0,.5);
-      margin: 20% auto 0;
+      margin: 17% auto 0;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -20,9 +21,29 @@
       font-size: 4rem;
       margin-bottom: 0;
     }
-    .page h3 {
+    .page h2 {
       margin: 1rem 0;
       font-size: 1.5rem;
+    }
+    .page .links a {
+      font-size: 2.5rem;
+      color: #444;
+      color: rgba(0,0,0,.5);
+      text-decoration: none;
+      margin: 0 .5rem;
+    }
+    .page .links a:hover {
+      color: #333;
+      color: rgba(0,0,0,.7);
+    }
+    @media screen and (max-width: 768px) {
+      .page h1 {
+        font-size: 2.5rem;
+      }
+      .page .links a {
+        font-size: 3rem;
+        margin: 0 1rem;
+      }
     }
     #map {
       opacity: .4;
@@ -40,7 +61,11 @@
   <div id="map"></div>
   <main class="page">
     <h1>OpenPDX</h1>
-    <h3>coming soon</h3>
+    <h2>coming soon</h2>
+    <p class="links">
+      <a href="https://twitter.com/openpdx"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/openpdx"><i class="fa fa-github"></i></a>
+    </p>
   </main>
 
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
